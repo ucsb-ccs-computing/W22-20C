@@ -1,0 +1,91 @@
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+
+remote_theme: ucsb-cs-course-repos/course-repo-jekyll-theme
+
+url: https://ucsb-ccs-computing.github.io
+baseurl: "/W22-20C"
+
+course: "CMPTGCS 20C"
+qtr: "W22"
+instructor: "Richert Wang"
+quarter: "Winter 2022"
+piazza_url: 
+gauchospace_course_page:
+gradescope_class_url:
+
+github_url: https://github.com/ucsb-ccs-computing/W22-20C
+
+start_week: 1
+start_date: 2021-01-03 00:00:00.00-7:00
+num_weeks: 10
+extra_exam_week: true
+
+cal_dates: >                                                                    
+  [                                                                            
+    {"label":"W22 1st day of instruction", "date":"2022-01-03" },
+    {"label":"MLK Jr. Day", "date":"2022-01-17" },
+    {"label":"Presidents' Day", "date":"2022-02-21" },
+    {"label":"W22 instruction ends", "date":"2022-03-11" },                   
+    {"label":"W22 qtr ends", "date":"2022-03-18" }                              
+  ]
+
+kramdown:
+   parse_block_html: true
+   default_lang: cpp
+
+exclude:
+   - vendor
+   - _hwk/keep
+   - _lab/keep
+   - _exam/keep
+   - _lectures/keep
+   - _info/keep        
+include:
+   - _pages
+   
+timezone: America/Los_Angeles
+
+collections:
+  hwk:
+    output: true
+    permalink: /hwk/:path/
+    last_before: false
+  lectures:
+    output: true
+    permalink: /lectures/:path/
+  info:
+    output: true
+    permalink: /info/:path/
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: default
+  - 
+    scope:
+      path: ""
+      type: lectures
+    values:
+      layout: lecture
+  - 
+    scope:
+      path: ""
+      type: hwk
+    values:
+      layout: hwk
+  -
+    scope:
+      path: ""
+      type: info
+    values:
+      layout: default
+  -
+    scope:
+      path: "syllabus.md"
+      type: info
+    values:
+      layout: handout
